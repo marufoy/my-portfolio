@@ -10,12 +10,20 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutMeSection />
       <AboutThisSiteSection />
-      <MySkillSection />
+      <div id="about">
+        <AboutMeSection />
+      </div>
+      <div id="skills">
+        <MySkillSection />
+      </div>
+      <div id="works">
+        <WorksSection />
+      </div>
       <TimelineSection />
-      <WorksSection />
-      <ContactSection />
+      <div id="contact">
+        <ContactSection />
+      </div>
     </>
   );
 }

@@ -12,7 +12,7 @@ const LaboTitle: React.FC<LaboTitleProps> = ({ title, subtitle }) => {
   return (
     <div className={styles.laboTitleContainer}>
       <h2 className={styles.title}>{title}</h2>
-      <p className={styles.subtitle}>{subtitle}</p>
+      {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
     </div>
   );
 };

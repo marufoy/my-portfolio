@@ -7,7 +7,7 @@ import Image from 'next/image';
 const AboutMeSection: React.FC = () => {
   return (
     <section className={styles.aboutMeSection}>
-      <h2 className={styles.title}>私について</h2>
+      <h2 className={styles.title}>WHO AM I ?</h2>
       
       <div className={styles.section}>
         <div className={styles.contentWrapper}>

@@ -5,6 +5,7 @@ import styles from "./HeroSection.module.css";
 import Stats from "./Stats";
 import MessageBoard from "./MessageBoard";
 import HiddenMessage from "./HiddenMessage";
+import LaboTitle from "./LaboTitle";
 
 const HeroSection = () => {
   const [isPunching, setIsPunching] = useState(false);
@@ -64,6 +65,7 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroContainer}>
+      <LaboTitle title="WASABIMARU'S Labo" subtitle="" />
       <Stats currentLv={lv} />
       <MessageBoard />
       {showHiddenMessage && (

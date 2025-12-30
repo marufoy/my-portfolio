@@ -12,7 +12,8 @@ const Stats: React.FC<StatsProps> = ({ currentLv }) => {
   const [typingStep, setTypingStep] = useState(0);
 
   const stats = [
-    { label: 'NAME', value: 'WasabiMaru   ' },
+    { label: 'HANDLE', value: 'WasabiMaru   ' },
+    { label: 'NAME', value: 'Ryo Maruyama' },
     { label: 'ORIGIN', value: 'NAGANO' },
     { label: 'LOCATION', value: 'Tokyo, JPN' },
     { label: 'CONDITION', value: 'Ready' },

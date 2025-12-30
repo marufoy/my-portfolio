@@ -6,7 +6,7 @@ import styles from './AboutThisSiteSection.module.css';
 const AboutThisSiteSection: React.FC = () => {
   return (
     <section className={styles.aboutMeContainer}>
-      <h2 className={styles.aboutMeTitle}>このサイトについて</h2>
+      <h2 className={styles.aboutMeTitle}>About This Site</h2>
       <div className={styles.aboutMeContent}>
       <p>
           こんにちは！わさび丸のポートフォリオサイトへようこそ。
