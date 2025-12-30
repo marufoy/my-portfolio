@@ -128,7 +128,7 @@ export default async function WorkDetailPage({
         <div className={styles.detailSection}>
           <h2 className={styles.sectionTitle}>詳細</h2>
           <div
-            className={styles.contentText}
+            className={`prose ${styles.contentText}`}
             dangerouslySetInnerHTML={{ __html: work.content }}
           />
         </div>
