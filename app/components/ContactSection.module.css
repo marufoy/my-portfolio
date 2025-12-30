@@ -3,7 +3,7 @@
   text-align: center;
   background-color: #2a2a2a;
   color: #ffffff;
-  font-family: DotGothic16, sans-serif;
+  font-family: var(--font-dot-gothic16), sans-serif;
   position: relative;
   overflow: hidden;
   z-index: 0;
@@ -125,7 +125,7 @@
   border: 2px solid #333333;
   border-radius: 4px;
   color: #ffffff;
-  font-family: DotGothic16, sans-serif;
+  font-family: var(--font-dot-gothic16), sans-serif;
   font-size: 1em;
   transition: all 0.3s ease;
   box-sizing: border-box;
@@ -154,7 +154,7 @@
   padding: 15px 30px;
   font-size: 1.1em;
   font-weight: 700;
-  font-family: DotGothic16, sans-serif;
+  font-family: var(--font-dot-gothic16), sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 4px;

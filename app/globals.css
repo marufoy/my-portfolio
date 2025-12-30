@@ -10,6 +10,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-dot-gothic16: var(--font-dot-gothic16);
+  --font-press-start-2p: var(--font-press-start-2p);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,4 +1,4 @@
-.aboutMeContainer{padding:50px 20px;text-align:center;background-color:#000000;color:#ffffff;font-family:DotGothic16,sans-serif}
+.aboutMeContainer{padding:50px 20px;text-align:center;background-color:#000000;color:#ffffff;font-family:var(--font-dot-gothic16),sans-serif}
 
 .aboutMeTitle{font-size:2.5em;margin-bottom:40px;color:#ffffff;text-shadow:0 0 10px rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;gap:20px;position:relative;z-index:1}
 

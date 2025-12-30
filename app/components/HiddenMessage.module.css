@@ -20,7 +20,7 @@
   max-width: 400px;
   width: 90%;
   color: #ffffff;
-  font-family: DotGothic16, Courier New, Courier, monospace;
+  font-family: var(--font-dot-gothic16), Courier New, Courier, monospace;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 

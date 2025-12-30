@@ -9,7 +9,7 @@
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0;
   color: #ffffff;
-  font-family: DotGothic16, sans-serif;
+  font-family: var(--font-dot-gothic16), sans-serif;
 }
 
 @media (max-width: 768px) {
