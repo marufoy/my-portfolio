@@ -100,3 +100,81 @@ export async function getAllSlugs(): Promise<string[]> {
   }
 }
 
+// Column型の定義
+export interface Column {
+  id: string;
+  title: string;
+  subtitle?: string; // サブタイトル
+  description: string;
+  image: string | { url: string; width?: number; height?: number }; // MicroCMSの画像フィールド
+  slug: string;
+  content?: string; // 詳細ページ用のコンテンツ（HTML形式）
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+// すべてのColumnsを取得
+export async function getAllColumns(): Promise<Column[]> {
+  try {
+    const data = await client.get({
+      endpoint: 'columns',
+      queries: {
+        fields: 'id,title,subtitle,description,image,slug,createdAt,updatedAt,publishedAt',
+        orders: '-publishedAt',
+      },
+    });
+    // 画像フィールドを文字列に変換
+    const columns = data.contents.map((column: any) => ({
+      ...column,
+      image: typeof column.image === 'object' ? column.image.url : column.image,
+    }));
+    return columns as Column[];
+  } catch (error) {
+    console.error('Error fetching columns:', error);
+    return [];
+  }
+}
+
+// スラッグから特定のColumnを取得
+export async function getColumnBySlug(slug: string): Promise<Column | null> {
+  try {
+    const data = await client.get({
+      endpoint: 'columns',
+      queries: {
+        filters: `slug[equals]${slug}`,
+        fields: 'id,title,subtitle,description,image,slug,content,createdAt,updatedAt,publishedAt',
+      },
+    });
+    
+    if (data.contents && data.contents.length > 0) {
+      const column = data.contents[0];
+      // 画像フィールドを文字列に変換
+      return {
+        ...column,
+        image: typeof column.image === 'object' ? column.image.url : column.image,
+      } as Column;
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching column by slug:', error);
+    return null;
+  }
+}
+
+// すべてのColumnスラッグを取得（静的生成用）
+export async function getAllColumnSlugs(): Promise<string[]> {
+  try {
+    const data = await client.get({
+      endpoint: 'columns',
+      queries: {
+        fields: 'slug',
+      },
+    });
+    return data.contents.map((item: { slug: string }) => item.slug);
+  } catch (error) {
+    console.error('Error fetching column slugs:', error);
+    return [];
+  }
+}
+
