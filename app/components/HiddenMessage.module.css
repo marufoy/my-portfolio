@@ -1,0 +1,7 @@
+.title{font-size:1rem;margin-bottom:1rem;border-bottom:1px solid #ffffff;padding-bottom:.5rem;text-transform:uppercase;letter-spacing:2px}
+
+.statLine{margin-bottom:.75rem;font-size:1rem;display:flex}
+
+.label{font-weight:700;width:100px;flex-shrink:0}
+
+.value{margin-left:.5rem;white-space:pre-wrap}

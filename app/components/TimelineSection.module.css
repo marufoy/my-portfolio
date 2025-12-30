@@ -1,0 +1,130 @@
+.timelineSection{padding:40px 20px;background:#000000;min-height:100vh;position:relative;font-family:DotGothic16,sans-serif;color:#ffffff}
+
+.title{text-align:center;font-size:3rem;font-weight:700;color:#00ff00;margin-bottom:40px;font-family:DotGothic16,sans-serif;letter-spacing:2px}
+
+.consoleHeader{background:#111111;border:2px solid #00ff00;border-radius:8px 8px 0 0;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:0;box-shadow:0 0 5px rgba(0,255,0,.2)}
+
+.consoleTitle{display:flex;align-items:center;gap:8px}
+
+.prompt{color:#00ff00;font-weight:700;font-family:DotGothic16,sans-serif}
+
+.command{color:#ffffff;font-family:DotGothic16,sans-serif}
+
+.consoleControls{display:flex;gap:8px}
+
+.controlBtn{width:12px;height:12px;border-radius:50%;background:#ff0000}
+
+.controlBtn{background:#ffff00}
+
+.controlBtn{background:#00ff00}
+
+.consoleFooter{background:#111111;border:2px solid #00ff00;border-radius:0 0 8px 8px;padding:12px 16px;margin-top:0;display:flex;align-items:center;gap:8px;box-shadow:0 0 5px rgba(0,255,0,.2)}
+
+.cursor{color:#00ff00;animation:TimelineSection_blink__qEv5V 1s infinite;font-family:DotGothic16,sans-serif}
+
+.timelineContainer{max-width:1400px;margin:0 auto;position:relative;background:#000000;border:2px solid #00ff00;border-top:none;border-bottom:none;padding:40px 20px;box-shadow:0 0 5px rgba(0,255,0,.1)}
+
+.timelineList{display:flex;flex-direction:column;gap:0;padding:20px 0;position:relative}
+
+.timelineItem{display:grid;grid-template-columns:150px 60px 1fr;align-items:center;gap:20px;padding:20px 0;position:relative;min-height:120px}
+
+.timelineLeft{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+
+.yearBadge{background:#000000;color:#00ff00;border:2px solid #00ff00;border-radius:6px;padding:8px 12px;font-size:.9rem;font-weight:700;font-family:DotGothic16,sans-serif;box-shadow:0 0 3px rgba(0,255,0,.2);white-space:nowrap}
+
+.timelineCenter{display:flex;flex-direction:column;align-items:center;position:relative;height:100%}
+
+.timelineDot{width:16px;height:16px;background:#00ff00;border:3px solid #000000;border-radius:50%;position:relative;z-index:2;box-shadow:0 0 3px rgba(0,255,0,.3)}
+
+.dotInner{position:absolute;top:50%;left:50%;width:6px;height:6px;background:#ffffff;border-radius:50%;transform:translate(-50%,-50%)}
+
+.timelineLine{position:absolute;top:16px;left:50%;width:2px;height:calc(100% + 20px);background:#00ff00;transform:translateX(-50%);box-shadow:0 0 2px rgba(0,255,0,.2)}
+
+.timelineRight{display:flex;align-items:center;gap:20px;padding:15px 0}
+
+.timelineContent{flex:1}
+
+.timelineImage{flex-shrink:0}
+
+.image{border-radius:4px;object-fit:cover;transition:all .3s ease;box-shadow:0 0 3px rgba(0,255,0,.2)}
+
+.image{border-color:#ffffff;box-shadow:0 0 5px rgba(0,255,0,.3);transform:scale(1.05)}
+
+.year{font-size:.9rem;color:#00ff00;font-family:DotGothic16,sans-serif}
+
+.timelineTitle{color:#ffffff;font-weight:700;font-family:DotGothic16,sans-serif}
+
+.timelineTitle{font-size:1.3rem;margin-bottom:12px;line-height:1.3}
+
+.timelineDescription{font-size:.9rem;color:#cccccc;line-height:1.5;margin:0 0 15px;font-family:DotGothic16,sans-serif}
+
+@media (max-width:768px) {
+  .timelineSection{padding:20px 10px}
+  .title{font-size:2.5rem}
+  .timelineContainer{padding:20px 10px}
+  .timelineItem{grid-template-columns:100px 30px 1fr;gap:12px;padding:15px 0}
+  .yearBadge{font-size:.8rem;padding:6px 10px}
+  .timelineDot{width:14px;height:14px}
+  .dotInner{width:5px;height:5px}
+  .timelineRight{gap:12px;flex-direction:column;align-items:flex-start}
+  .timelineContent{width:100%}
+  .timelineImage{align-self:center}
+  .timelineTitle{font-size:1.1rem;margin-bottom:8px}
+  .timelineDescription{font-size:.9rem;line-height:1.6;margin-bottom:10px}
+  .consoleFooter{padding:8px 12px}
+  .command{font-size:.9rem}
+}
+
+.timelineDot{width:14px;height:14px}
+
+.dotInner{width:5px;height:5px}
+
+.timelineRight{gap:12px;flex-direction:column;align-items:flex-start}
+
+.timelineContent{width:100%}
+
+.timelineImage{align-self:center}
+
+.timelineTitle{font-size:1.1rem;margin-bottom:8px}
+
+.timelineDescription{font-size:.9rem;line-height:1.6;margin-bottom:10px}
+
+.consoleFooter{padding:8px 12px}
+
+.command{font-size:.9rem}
+
+@media (max-width:480px) {
+  .timelineSection{padding:15px 5px}
+  .title{font-size:2rem}
+  .timelineContainer{padding:15px 5px}
+  .timelineItem{grid-template-columns:80px 20px 1fr;gap:8px;padding:12px 0}
+  .yearBadge{font-size:.7rem;padding:4px 8px}
+  .timelineDot{width:12px;height:12px}
+  .dotInner{width:4px;height:4px}
+  .timelineRight{gap:8px;flex-direction:column;align-items:flex-start}
+  .timelineContent{width:100%}
+  .timelineImage{align-self:center}
+  .image{width:80px;height:60px}
+  .timelineTitle{font-size:1rem;margin-bottom:6px}
+  .timelineDescription{font-size:.85rem;line-height:1.5;margin-bottom:8px}
+  .consoleFooter{padding:6px 10px}
+  .command{font-size:.8rem}
+}
+
+.timelineDot{width:12px;height:12px}
+
+.dotInner{width:4px;height:4px}
+
+.timelineRight{gap:8px;flex-direction:column;align-items:flex-start}
+
+.image{width:80px;height:60px}
+
+.timelineTitle{font-size:1rem;margin-bottom:6px}
+
+.timelineDescription{font-size:.85rem;line-height:1.5;margin-bottom:8px}
+
+.consoleFooter{padding:6px 10px}
+
+.command{font-size:.8rem}
+
+@keyframes blink{0%,50%{opacity:1}51%,to{opacity:0}}

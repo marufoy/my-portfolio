@@ -1,0 +1,5 @@
+.titleIcon{width:40px;height:40px;object-fit:contain;transition:transform .3s ease}
+
+.titleIcon{transform:scale(1.1)}
+
+.aboutMeContent{max-width:800px;margin:0 auto;line-height:1.8;font-size:1.1rem}

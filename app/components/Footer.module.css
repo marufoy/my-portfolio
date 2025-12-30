@@ -1,0 +1,18 @@
+.footer{background-color:#1a1a1a;border-top:2px solid #ffffff;padding:200px 20px;text-align:center;margin-top:100px}
+
+.footerContent{max-width:1200px;margin:0 auto}
+
+.footerMessageContainer{display:flex;align-items:center;justify-content:center;gap:20px}
+
+.byeImage{filter:drop-shadow(0 0 10px rgba(255,255,255,.3));transition:transform .3s ease}
+
+.byeImage{transform:scale(1.1) rotate(5deg)}
+
+.footerMessage{color:#ffffff;font-family:DotGothic16,sans-serif;font-size:2rem;font-weight:700;margin:0;letter-spacing:2px;text-transform:uppercase}
+
+@media (max-width:600px) {
+  .footer{padding:30px 15px}
+  .footerMessageContainer{gap:15px}
+  .byeImage{width:40px!important;height:40px!important}
+  .footerMessage{font-size:1em;letter-spacing:1px}
+}
