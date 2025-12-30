@@ -7,7 +7,7 @@ import styles from './ContactSection.module.css';
 const ContactSection: React.FC = () => {
   return (
     <section className={styles.contactSection}>
-      <h2 className={styles.title}>お問い合わせ</h2>
+      <h2 className={styles.title}>CONTACT</h2>
       <p className={styles.description}>
         このサイトや私について少しでも興味を持っていただけたら嬉しいです。お仕事の依頼なども大歓迎です。
       </p>
