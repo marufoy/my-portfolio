@@ -173,40 +173,6 @@
   font-size: 0.9em;
 }
 
-.metaSection {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  border: 1px solid #333333;
-}
-
-.metaItem {
-  display: flex;
-  gap: 10px;
-}
-
-.metaLabel {
-  font-weight: 700;
-  color: #00ff00;
-  min-width: 120px;
-}
-
-.metaValue {
-  color: #ffffff;
-}
-
-.metaLink {
-  color: #00ff00;
-  text-decoration: none;
-  word-break: break-all;
-}
-
-.metaLink:hover {
-  text-decoration: underline;
-}
 
 @media (max-width: 968px) {
   .topSection {
@@ -250,15 +216,6 @@
   .backLink {
     font-size: 0.8em;
     padding: 8px 15px;
-  }
-
-  .metaItem {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .metaLabel {
-    min-width: auto;
   }
 }
 

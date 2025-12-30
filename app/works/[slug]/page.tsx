@@ -90,43 +90,6 @@ export default async function WorkDetailPage({
               </div>
             </div>
           )}
-
-          <div className={styles.metaSection}>
-            {work.period && (
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>開発期間:</span>
-                <span className={styles.metaValue}>{work.period}</span>
-              </div>
-            )}
-
-            {work.url && (
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>URL:</span>
-                <a
-                  href={work.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.metaLink}
-                >
-                  {work.url}
-                </a>
-              </div>
-            )}
-
-            {work.github && (
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>GitHub:</span>
-                <a
-                  href={work.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.metaLink}
-                >
-                  {work.github}
-                </a>
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
