@@ -98,7 +98,7 @@ const MySkillSection: React.FC = () => {
 
   return (
     <section className={styles.mySkillSection}>
-      <h2 className={styles.title}>スキル</h2>
+      <h2 className={styles.title}>MY SKILLS</h2>
       
       <div className={styles.skillsGrid}>
         {skills.map((skill, index) => (
