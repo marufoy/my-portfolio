@@ -19,8 +19,8 @@ interface WorkCardProps {
 
 const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
   return (
-    <Link href={`/works/${work.slug}`} className={styles.workCard}>
-      <div className={styles.imageContainer}>
+    <Link href={`/works/${work.slug}`} className={styles.card}>
+      <div className={styles.imageWrapper}>
         <Image
           src={work.image}
           alt={work.title}
@@ -29,10 +29,8 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
           className={styles.image}
         />
       </div>
-      <div className={styles.content}>
-        <h3 className={styles.title}>{work.title}</h3>
-        <p className={styles.description}>{work.description}</p>
-      </div>
+      <h3 className={styles.title}>{work.title}</h3>
+      <p className={styles.description}>{work.description}</p>
     </Link>
   );
 };
