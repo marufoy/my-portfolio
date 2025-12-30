@@ -96,6 +96,7 @@
 .contentText {
   color: #333333;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 /* Typographyプラグインで適用される見出しのカスタマイズ */
