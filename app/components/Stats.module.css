@@ -1,0 +1,76 @@
+.statsContainer {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #00ff00;
+  padding: 20px;
+  font-family: DotGothic16, Courier New, Courier, monospace;
+  z-index: 10;
+  width: 320px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #00ff00;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.statLine {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  display: flex;
+}
+
+.label {
+  font-weight: 700;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.value {
+  margin-left: 0.5rem;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .statsContainer {
+    top: 120px;
+    right: 20px;
+    width: 280px;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsContainer {
+    top: 100px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    gap: 8px;
+  }
+}
+

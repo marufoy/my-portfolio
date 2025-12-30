@@ -8,7 +8,7 @@ interface StatsProps {
   currentLv: number;
 }
 
-const Stats: React.FC<StatsProps> = () => {
+const Stats: React.FC<StatsProps> = ({ currentLv }) => {
   const [typingStep, setTypingStep] = useState(0);
 
   const stats = [
