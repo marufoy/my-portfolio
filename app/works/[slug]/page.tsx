@@ -16,9 +16,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const work = await getWorkBySlug(params.slug);
+  const { slug } = await params;
+  const work = await getWorkBySlug(slug);
   
   if (!work) {
     return {
@@ -35,9 +36,10 @@ export async function generateMetadata({
 export default async function WorkDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const work = await getWorkBySlug(params.slug);
+  const { slug } = await params;
+  const work = await getWorkBySlug(slug);
 
   if (!work) {
     notFound();
@@ -52,7 +54,7 @@ export default async function WorkDetailPage({
         <h1 className={styles.title}>{work.title}</h1>
       </div>
 
-      <div className={styles.content}>
+      <div className={styles.topSection}>
         <div className={styles.imageSection}>
           <Image
             src={typeof work.image === 'string' ? work.image : work.image.url}
@@ -64,21 +66,11 @@ export default async function WorkDetailPage({
           />
         </div>
 
-        <div className={styles.infoSection}>
+        <div className={styles.overviewSection}>
           <div className={styles.description}>
             <h2 className={styles.sectionTitle}>概要</h2>
             <p>{work.description}</p>
           </div>
-
-          {work.content && (
-            <div className={styles.contentSection}>
-              <h2 className={styles.sectionTitle}>詳細</h2>
-              <div
-                className={styles.contentText}
-                dangerouslySetInnerHTML={{ __html: work.content }}
-              />
-            </div>
-          )}
 
           {work.technologies && work.technologies.length > 0 && (
             <div className={styles.technologiesSection}>
@@ -131,6 +123,16 @@ export default async function WorkDetailPage({
           </div>
         </div>
       </div>
+
+      {work.content && (
+        <div className={styles.detailSection}>
+          <h2 className={styles.sectionTitle}>詳細</h2>
+          <div
+            className={styles.contentText}
+            dangerouslySetInnerHTML={{ __html: work.content }}
+          />
+        </div>
+      )}
     </div>
   );
 }
