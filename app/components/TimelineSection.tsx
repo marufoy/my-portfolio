@@ -11,7 +11,7 @@ const TimelineSection: React.FC = () => {
       title: "初めてPCを触る",
       description:
         "初めて祖母のPCを触る。当時のOSはWindows95マシンだった。起動するまでに10分くらいかかったのをまだ覚えている。5歳だった私はキーボードの配列などがわからなかったが、深いキーボードを打ち込む感触は楽しい体験であった。Windows標準等搭載のペイントアプリでお絵描きをしていた。なぜか今でもPCの背景を深い緑にすると落ちつくのである。",
-      image: "/images/character-nomal.png",
+      image: "/images/desktop-pc.png",
     },
     {
       year: "2010",
@@ -25,7 +25,7 @@ const TimelineSection: React.FC = () => {
       title: "サイト作りに挑戦",
       description:
         "インターネットで稼いでみたくなった高校生。アフィリエイトブログという存在を知る。WordPressを使ってサイトを使ってみるも、全く稼げなかった。自分の好みのデザインにするにはHTMLとCSSを使うことを知った。ここで初めてそれらを学ぶのであった！しかし、全く稼げなかったので挫折。HTMLとデザインの教本は埃をかぶることとなる。",
-      image: "/images/note-pc.png",
+      image: "/images/program_code.png",
     },
     {
       year: "2022",

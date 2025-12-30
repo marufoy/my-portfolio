@@ -40,7 +40,7 @@
 
 .timelineLine{position:absolute;top:16px;left:50%;width:2px;height:calc(100% + 20px);background:#00ff00;transform:translateX(-50%);box-shadow:0 0 2px rgba(0,255,0,.2)}
 
-.timelineRight{display:flex;align-items:center;gap:20px;padding:15px 0}
+.timelineRight{display:flex;align-items:center;gap:20px;padding:15px 0;}
 
 .timelineContent{flex:1}
 
@@ -68,7 +68,7 @@
   .dotInner{width:5px;height:5px}
   .timelineRight{gap:12px;flex-direction:column;align-items:flex-start}
   .timelineContent{width:100%}
-  .timelineImage{align-self:center}
+  .timelineImage{align-self:left}
   .timelineTitle{font-size:1.1rem;margin-bottom:8px}
   .timelineDescription{font-size:.9rem;line-height:1.6;margin-bottom:10px}
   .consoleFooter{padding:8px 12px}
@@ -83,7 +83,7 @@
 
 .timelineContent{width:100%}
 
-.timelineImage{align-self:center}
+.timelineImage{align-self:left}
 
 .timelineTitle{font-size:1.1rem;margin-bottom:8px}
 
@@ -103,7 +103,7 @@
   .dotInner{width:4px;height:4px}
   .timelineRight{gap:8px;flex-direction:column;align-items:flex-start}
   .timelineContent{width:100%}
-  .timelineImage{align-self:center}
+  .timelineImage{align-self:left}
   .image{width:80px;height:60px}
   .timelineTitle{font-size:1rem;margin-bottom:6px}
   .timelineDescription{font-size:.85rem;line-height:1.5;margin-bottom:8px}
