@@ -23,7 +23,9 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
         />
       </div>
       <h3 className={styles.title}>{work.title}</h3>
-      <p className={styles.description}>{work.description}</p>
+      {work.subtitle && (
+        <p className={styles.subtitle}>{work.subtitle}</p>
+      )}
     </Link>
   );
 };

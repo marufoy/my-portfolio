@@ -39,6 +39,11 @@
   margin: 0 10px 15px;
   color: #ffffff;
 }
+.subtitle {
+  font-size: 0.95em;
+  margin: 0 10px 15px;
+  color: #ffffff;
+}
 
 @media (max-width: 768px) {
   .imageWrapper {

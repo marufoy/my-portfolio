@@ -10,6 +10,7 @@ export const client = createClient({
 export interface Work {
   id: string;
   title: string;
+  subtitle?: string; // サブタイトル
   description: string;
   image: string | { url: string; width?: number; height?: number }; // MicroCMSの画像フィールド
   slug: string;
@@ -29,7 +30,7 @@ export async function getAllWorks(): Promise<Work[]> {
     const data = await client.get({
       endpoint: 'works',
       queries: {
-        fields: 'id,title,description,image,slug,createdAt,updatedAt,publishedAt',
+        fields: 'id,title,subtitle,description,image,slug,createdAt,updatedAt,publishedAt',
         orders: '-publishedAt',
       },
     });
