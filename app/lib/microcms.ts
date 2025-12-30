@@ -60,9 +60,21 @@ export async function getWorkBySlug(slug: string): Promise<Work | null> {
     if (data.contents && data.contents.length > 0) {
       const work = data.contents[0];
       // 画像フィールドを文字列に変換
+      // technologiesが配列でない場合（文字列やオブジェクトの場合）に対応
+      let technologies = work.technologies;
+      if (technologies && !Array.isArray(technologies)) {
+        // 文字列の場合は配列に変換
+        if (typeof technologies === 'string') {
+          technologies = technologies.split(',').map((tech: string) => tech.trim());
+        } else {
+          // オブジェクトの場合は空配列にする
+          technologies = [];
+        }
+      }
       return {
         ...work,
         image: typeof work.image === 'object' ? work.image.url : work.image,
+        technologies: technologies,
       } as Work;
     }
     return null;

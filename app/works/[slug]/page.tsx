@@ -72,15 +72,21 @@ export default async function WorkDetailPage({
             <p>{work.description}</p>
           </div>
 
-          {work.technologies && work.technologies.length > 0 && (
+          {work.technologies && Array.isArray(work.technologies) && work.technologies.length > 0 && (
             <div className={styles.technologiesSection}>
               <h2 className={styles.sectionTitle}>使用技術</h2>
               <div className={styles.technologiesList}>
-                {work.technologies.map((tech, index) => (
-                  <span key={index} className={styles.techTag}>
-                    {tech}
-                  </span>
-                ))}
+                {work.technologies.map((tech, index) => {
+                  // technologiesが文字列の配列か、オブジェクトの配列かを判定
+                  const techName = typeof tech === 'string' 
+                    ? tech 
+                    : (tech as any)?.name || (tech as any)?.label || String(tech);
+                  return (
+                    <span key={index} className={styles.techTag}>
+                      {techName}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           )}
