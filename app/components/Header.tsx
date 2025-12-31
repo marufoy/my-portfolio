@@ -43,6 +43,11 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
+              <Link href="#columns" className={styles.navLink}>
+                <span className={styles.prompt}>$</span> COLUMN
+              </Link>
+            </li>
+            <li className={styles.navItem}>
               <Link href="#contact" className={styles.navLink}>
                 <span className={styles.prompt}>$</span> CONTACT
               </Link>

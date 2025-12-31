@@ -65,7 +65,7 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroContainer}>
-      <LaboTitle title="WASABIMARU'S Labo" subtitle="" />
+      <LaboTitle title="Mt.maru360" subtitle="" />
       <Stats currentLv={lv} />
       <MessageBoard />
       {showHiddenMessage && (
