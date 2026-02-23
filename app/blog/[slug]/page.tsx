@@ -50,10 +50,12 @@ export default async function BlogDetailPage({
       </div>
 
       {blog.content && (
-        <div
-          className={`prose ${styles.contentText}`}
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
+        <div className={styles.detailSection}>
+          <div
+            className={`prose ${styles.contentText}`}
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+        </div>
       )}
     </div>
   );

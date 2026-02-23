@@ -1,14 +1,14 @@
+/* Column詳細ページと共通スタイル */
 .container {
   min-height: 100vh;
-  background-color: #1a1a1a;
-  background-image: linear-gradient(45deg, #2d2d2d 25%, transparent 0),
-    linear-gradient(-45deg, #2d2d2d 25%, transparent 0),
-    linear-gradient(45deg, transparent 75%, #2d2d2d 0),
-    linear-gradient(-45deg, transparent 75%, #2d2d2d 0);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
-  color: #e0e0e0;
-  font-family: var(--font-dot-gothic16), "Courier New", Monaco, Menlo, monospace;
+  background-color: #ffffff;
+  background-image: url('/images/square_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333333;
+  font-family: 'Courier New', Monaco, Menlo, monospace;
   padding: 100px 20px 80px;
   position: relative;
 }
@@ -19,76 +19,112 @@
 }
 
 .header {
-  max-width: 800px;
-  margin: 0 auto 40px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
 }
 
 .backLink {
   display: inline-block;
-  color: #888;
+  color: #333333;
   text-decoration: none;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   padding: 10px 20px;
-  border: 2px solid #555;
-  transition: all 0.2s ease;
+  border: 2px solid #333333;
+  border-radius: 5px;
+  transition: all 0.3s ease;
   font-size: 0.9em;
 }
 
 .backLink:hover {
-  border-color: #fff;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(-5px);
 }
 
 .meta {
-  color: #888;
   font-size: 0.95em;
+  color: #555;
   margin: 0 0 12px;
 }
 
 .title {
-  font-size: 2em;
+  font-size: 2.8em;
   margin: 0;
-  color: #ffffff;
-  line-height: 1.4;
+  color: #333333;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.detailSection {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.sectionTitle {
+  font-size: 1.8em;
+  margin: 0 0 15px;
+  color: #333333;
+  border-bottom: 2px solid #333333;
+  padding-bottom: 10px;
 }
 
 .contentText {
-  max-width: 800px;
+  color: #333333;
   margin: 0 auto;
-  font-size: 1.05em;
-  line-height: 1.9;
-  color: #d0d0d0;
+  max-width: 800px;
 }
 
+/* Typographyプラグインで適用される見出しのカスタマイズ */
 :global(.prose).contentText h1,
 :global(.prose).contentText h2,
 :global(.prose).contentText h3,
 :global(.prose).contentText h4 {
-  color: #ffffff;
-  margin-top: 28px;
-  margin-bottom: 12px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border-left: 4px solid #666;
+  color: #333333;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 12px 20px;
+  background-color: rgba(213, 0, 0, 0.1);
+  border-radius: 0px;
+  font-weight: 700;
 }
 
-:global(.prose).contentText p {
-  margin-bottom: 1em;
+:global(.prose).contentText h1 {
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-left-width: 3px;
 }
 
-:global(.prose).contentText ul,
-:global(.prose).contentText ol {
-  margin-left: 1.5em;
-  margin-bottom: 1em;
+:global(.prose).contentText h2 {
+  font-size: 1.75em;
+  background-color: rgba(51, 51, 51, 0.12);
+  border-left-width: 2px;
 }
 
-:global(.prose).contentText a {
-  color: #7eb8da;
+:global(.prose).contentText h3 {
+  font-size: 1.5em;
+  background-color: rgba(51, 51, 51, 0.1);
+  border-left-width: 2px;
+}
+
+:global(.prose).contentText h4 {
+  font-size: 1.25em;
+  background-color: rgba(51, 51, 51, 0.08);
+  border-left-width: 2px;
+}
+
+.contentText p {
+  margin-bottom: 15px;
+}
+
+.contentText ul,
+.contentText ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.contentText a {
+  color: #1100ff;
   text-decoration: underline;
-}
-
-:global(.prose).contentText a:hover {
-  color: #9dd;
 }
 
 @media (max-width: 768px) {
@@ -97,10 +133,14 @@
   }
 
   .title {
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
 
-  .contentText {
+  .sectionTitle {
+    font-size: 1.5em;
+  }
+
+  .detailSection {
     font-size: 1em;
   }
 }
@@ -111,11 +151,11 @@
   }
 
   .title {
-    font-size: 1.35em;
+    font-size: 1.5em;
   }
 
   .backLink {
-    font-size: 0.85em;
-    padding: 8px 16px;
+    font-size: 0.8em;
+    padding: 8px 15px;
   }
 }
