@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./BlogSection.module.css";
 import type { Blog, BlogCategory } from "@/lib/microcms";
 
+const PER_PAGE = 4;
 type Filter = "ALL" | BlogCategory;
 
 function formatDate(iso: string): string {
@@ -21,11 +22,24 @@ interface BlogListProps {
 
 const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
   const [filter, setFilter] = useState<Filter>("ALL");
+  const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     if (filter === "ALL") return blogs;
     return blogs.filter((b) => b.category === filter);
   }, [blogs, filter]);
+
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+  const showPagination = filtered.length >= 4;
+  const paginated = useMemo(() => {
+    if (!showPagination) return filtered;
+    const start = (page - 1) * PER_PAGE;
+    return filtered.slice(start, start + PER_PAGE);
+  }, [filtered, page, showPagination]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filter]);
 
   return (
     <>
@@ -42,7 +56,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
         ))}
       </div>
       <ul className={styles.list}>
-        {filtered.map((blog) => (
+        {paginated.map((blog) => (
           <li key={blog.id}>
             <Link href={`/blog/${blog.slug}`} className={styles.item}>
               <span className={styles.itemDate}>{formatDate(blog.publishedAt)}</span>
@@ -52,6 +66,38 @@ const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
           </li>
         ))}
       </ul>
+      {showPagination && totalPages > 1 && (
+        <nav className={styles.pagination} aria-label="ページネーション">
+          <button
+            type="button"
+            className={styles.pageBtn}
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+          >
+            前へ
+          </button>
+          <div className={styles.pageNumbers}>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                className={page === n ? `${styles.pageNum} ${styles.pageNumActive}` : styles.pageNum}
+                onClick={() => setPage(n)}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            className={styles.pageBtn}
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages}
+          >
+            次へ
+          </button>
+        </nav>
+      )}
     </>
   );
 };
