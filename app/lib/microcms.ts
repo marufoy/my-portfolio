@@ -178,3 +178,109 @@ export async function getAllColumnSlugs(): Promise<string[]> {
   }
 }
 
+// Blog型の定義（カテゴリ: TECH | LIFE）
+export type BlogCategory = 'TECH' | 'LIFE';
+
+export interface Blog {
+  id: string;
+  title: string;
+  slug: string;
+  category: BlogCategory;
+  content?: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+// 静的フォールバック用のブログデータ（MicroCMS設定前用）
+const FALLBACK_BLOGS: Blog[] = [
+  {
+    id: '1',
+    title: 'eJPTのラボ演習：ルーティングの概念と実践',
+    slug: 'ejpt-routing-lab',
+    category: 'TECH',
+    content: '<p>（MicroCMSで本文を管理する予定です）</p>',
+    publishedAt: '2026-02-23T00:00:00.000Z',
+    createdAt: '2026-02-23T00:00:00.000Z',
+    updatedAt: '2026-02-23T00:00:00.000Z',
+  },
+  {
+    id: '2',
+    title: 'オーソドックススタイルにおける左ガードの視界の確保',
+    slug: 'orthodox-left-guard-view',
+    category: 'LIFE',
+    content: '<p>（MicroCMSで本文を管理する予定です）</p>',
+    publishedAt: '2026-02-20T00:00:00.000Z',
+    createdAt: '2026-02-20T00:00:00.000Z',
+    updatedAt: '2026-02-20T00:00:00.000Z',
+  },
+  {
+    id: '3',
+    title: 'Next.jsとmicroCMSでブログ機能を構築してみた',
+    slug: 'nextjs-microcms-blog',
+    category: 'TECH',
+    content: '<p>（MicroCMSで本文を管理する予定です）</p>',
+    publishedAt: '2026-02-18T00:00:00.000Z',
+    createdAt: '2026-02-18T00:00:00.000Z',
+    updatedAt: '2026-02-18T00:00:00.000Z',
+  },
+  {
+    id: '4',
+    title: '鉄フライパンで育てる日常のひととき',
+    slug: 'cast-iron-daily',
+    category: 'LIFE',
+    content: '<p>（MicroCMSで本文を管理する予定です）</p>',
+    publishedAt: '2026-02-15T00:00:00.000Z',
+    createdAt: '2026-02-15T00:00:00.000Z',
+    updatedAt: '2026-02-15T00:00:00.000Z',
+  },
+];
+
+// すべてのBlogを取得（MicroCMSがあればAPI、なければフォールバック）
+export async function getAllBlogs(): Promise<Blog[]> {
+  try {
+    const data = await client.get({
+      endpoint: 'blog',
+      queries: {
+        fields: 'id,title,slug,category,content,createdAt,updatedAt,publishedAt',
+        orders: '-publishedAt',
+      },
+    });
+    return (data.contents || []) as Blog[];
+  } catch {
+    return FALLBACK_BLOGS;
+  }
+}
+
+// スラッグから特定のBlogを取得
+export async function getBlogBySlug(slug: string): Promise<Blog | null> {
+  try {
+    const data = await client.get({
+      endpoint: 'blog',
+      queries: {
+        filters: `slug[equals]${slug}`,
+        fields: 'id,title,slug,category,content,createdAt,updatedAt,publishedAt',
+      },
+    });
+    if (data.contents && data.contents.length > 0) {
+      return data.contents[0] as Blog;
+    }
+  } catch {
+    // fallback
+  }
+  return FALLBACK_BLOGS.find((b) => b.slug === slug) ?? null;
+}
+
+// すべてのBlogスラッグを取得（静的生成用）
+export async function getAllBlogSlugs(): Promise<string[]> {
+  try {
+    const data = await client.get({
+      endpoint: 'blog',
+      queries: { fields: 'slug' },
+    });
+    return (data.contents || []).map((item: { slug: string }) => item.slug);
+  } catch {
+    return FALLBACK_BLOGS.map((b) => b.slug);
+  }
+}
+

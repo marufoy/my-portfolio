@@ -3,6 +3,7 @@ import AboutMeSection from "@/components/AboutMeSection";
 import AboutThisSiteSection from "@/components/AboutThisSiteSection";
 import MySkillSection from "@/components/MySkillSection";
 import ColumnSection from "@/components/ColumnSection";
+import BlogSection from "@/components/BlogSection";
 import TimelineSection from "@/components/TimelineSection";
 import WorksSection from "@/components/WorksSection";
 import ContactSection from "@/components/ContactSection";
@@ -23,6 +24,9 @@ export default function Home() {
       </div>
       <div id="columns">
         <ColumnSection />
+      </div>
+      <div id="blog">
+        <BlogSection />
       </div>
       <TimelineSection />
       <div id="contact">

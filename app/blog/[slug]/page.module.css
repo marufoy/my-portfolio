@@ -1,0 +1,121 @@
+.container {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  background-image: linear-gradient(45deg, #2d2d2d 25%, transparent 0),
+    linear-gradient(-45deg, #2d2d2d 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, #2d2d2d 0),
+    linear-gradient(-45deg, transparent 75%, #2d2d2d 0);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  color: #e0e0e0;
+  font-family: var(--font-dot-gothic16), "Courier New", Monaco, Menlo, monospace;
+  padding: 100px 20px 80px;
+  position: relative;
+}
+
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.backLink {
+  display: inline-block;
+  color: #888;
+  text-decoration: none;
+  margin-bottom: 24px;
+  padding: 10px 20px;
+  border: 2px solid #555;
+  transition: all 0.2s ease;
+  font-size: 0.9em;
+}
+
+.backLink:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.meta {
+  color: #888;
+  font-size: 0.95em;
+  margin: 0 0 12px;
+}
+
+.title {
+  font-size: 2em;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.contentText {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.05em;
+  line-height: 1.9;
+  color: #d0d0d0;
+}
+
+:global(.prose).contentText h1,
+:global(.prose).contentText h2,
+:global(.prose).contentText h3,
+:global(.prose).contentText h4 {
+  color: #ffffff;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 4px solid #666;
+}
+
+:global(.prose).contentText p {
+  margin-bottom: 1em;
+}
+
+:global(.prose).contentText ul,
+:global(.prose).contentText ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+:global(.prose).contentText a {
+  color: #7eb8da;
+  text-decoration: underline;
+}
+
+:global(.prose).contentText a:hover {
+  color: #9dd;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 80px 15px 60px;
+  }
+
+  .title {
+    font-size: 1.6em;
+  }
+
+  .contentText {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 60px 10px 40px;
+  }
+
+  .title {
+    font-size: 1.35em;
+  }
+
+  .backLink {
+    font-size: 0.85em;
+    padding: 8px 16px;
+  }
+}
