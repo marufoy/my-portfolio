@@ -12,12 +12,11 @@ const Stats: React.FC<StatsProps> = ({ currentLv }) => {
   const [typingStep, setTypingStep] = useState(0);
 
   const stats = [
-    { label: 'HANDLE', value: 'WasabiMaru   ' },
+    { label: 'HANDLE', value: 'Mt.Maru   ' },
     { label: 'NAME', value: 'Ryo Maruyama' },
     { label: 'ORIGIN', value: 'NAGANO' },
     { label: 'LOCATION', value: 'Tokyo, JPN' },
-    { label: 'CONDITION', value: 'Ready' },
-    { label: 'SKILLS', value: 'HTML, CSS, JavaScript, Java, Python ,React, Next.js, TypeScript' },
+    { label: 'SKILLS', value: 'HTML/CSS/JavaScript, Java, Python ,React, Next.js, TypeScript, Offensive Security' },
   ];
 
   return (

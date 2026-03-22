@@ -10,12 +10,12 @@ const Status = ({ currentLv = 1, isMobile = false }) => {
   const [allInitialStatsTyped, setAllInitialStatsTyped] = useState(false); // 初期ステータスが全てタイプされたか
 
   const status = [
-    { label: 'HANDLE NAME', value: 'WasabiMaru   ' },
+    { label: 'HANDLE NAME', value: 'Mt.Maru   ' },
     { label: 'NAME', value: 'Ryo Maruyama' },
     { label: 'ORIGIN', value: 'NAGANO' },
     { label: 'LOCATION', value: 'Tokyo, JPN' },
     { label: 'CONDITION', value: 'Ready' },
-    { label: 'SKILLS', value: 'HTML, CSS, JavaScript, Java, Python ,React, Next.js, TypeScript' },
+    { label: 'SKILLS', value: 'HTML/CSS/JavaScript, Java, Python ,React, Next.js, TypeScript' },
   ];
 
   // 初期ステータスのアニメーション完了を監視

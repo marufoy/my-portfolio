@@ -92,6 +92,10 @@
   line-height: 1.8;
 }
 
+/* MicroCMS テキストエリアの改行（\n）をそのまま表示 */
+.description p {
+  white-space: pre-line;
+}
 
 .contentText {
   color: #333333;
