@@ -2,6 +2,10 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getColumnBySlug, getAllColumnSlugs } from '@/lib/microcms';
+import {
+  injectHeadingIdsAndBuildToc,
+  type TocItem,
+} from '@/lib/blog-toc';
 import styles from './page.module.css';
 
 // 静的生成用のパスを生成
@@ -45,6 +49,16 @@ export default async function ColumnDetailPage({
     notFound();
   }
 
+  let contentHtml = '';
+  let toc: TocItem[] = [];
+  if (column.content) {
+    const parsed = injectHeadingIdsAndBuildToc(column.content, {
+      idPrefix: 'column-heading',
+    });
+    contentHtml = parsed.html;
+    toc = parsed.toc;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -77,9 +91,30 @@ export default async function ColumnDetailPage({
       {column.content && (
         <div className={styles.detailSection}>
           <h2 className={styles.sectionTitle}>詳細</h2>
+          {toc.length > 0 && (
+            <nav className={styles.toc} aria-label="目次">
+              <h3 className={styles.tocTitle}>目次</h3>
+              <ol className={styles.tocList}>
+                {toc.map((item) => (
+                  <li
+                    key={item.id}
+                    className={
+                      item.level === 3
+                        ? styles.tocItemH3
+                        : item.level === 4
+                          ? styles.tocItemH4
+                          : styles.tocItemH2
+                    }
+                  >
+                    <a href={`#${item.id}`}>{item.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
           <div
             className={`prose ${styles.contentText}`}
-            dangerouslySetInnerHTML={{ __html: column.content }}
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
         </div>
       )}

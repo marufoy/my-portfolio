@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlogBySlug, getAllBlogSlugs } from "@/lib/microcms";
+import {
+  injectHeadingIdsAndBuildToc,
+  type TocItem,
+} from "@/lib/blog-toc";
 import styles from "./page.module.css";
 
 export async function generateStaticParams() {
@@ -37,6 +41,16 @@ export default async function BlogDetailPage({
 
   if (!blog) notFound();
 
+  let contentHtml = "";
+  let toc: TocItem[] = [];
+  if (blog.content) {
+    const parsed = injectHeadingIdsAndBuildToc(blog.content, {
+      idPrefix: "blog-heading",
+    });
+    contentHtml = parsed.html;
+    toc = parsed.toc;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -51,9 +65,30 @@ export default async function BlogDetailPage({
 
       {blog.content && (
         <div className={styles.detailSection}>
+          {toc.length > 0 && (
+            <nav className={styles.toc} aria-label="目次">
+              <h2 className={styles.tocTitle}>目次</h2>
+              <ol className={styles.tocList}>
+                {toc.map((item) => (
+                  <li
+                    key={item.id}
+                    className={
+                      item.level === 3
+                        ? styles.tocItemH3
+                        : item.level === 4
+                          ? styles.tocItemH4
+                          : styles.tocItemH2
+                    }
+                  >
+                    <a href={`#${item.id}`}>{item.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
           <div
             className={`prose ${styles.contentText}`}
-            dangerouslySetInnerHTML={{ __html: blog.content }}
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
         </div>
       )}
