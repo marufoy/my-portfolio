@@ -16,7 +16,7 @@ const Stats: React.FC<StatsProps> = ({ currentLv }) => {
     { label: 'NAME', value: 'Ryo Maruyama' },
     { label: 'ORIGIN', value: 'NAGANO' },
     { label: 'LOCATION', value: 'Tokyo, JPN' },
-    { label: 'SKILLS', value: 'HTML/CSS/JavaScript, Java, Python ,React, Next.js, TypeScript, Offensive Security' },
+    { label: 'SKILLS', value: 'HTML/CSS/JavaScript, Java, Python ,React, Next.js, TypeScript, Security' },
   ];
 
   return (

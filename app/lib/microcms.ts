@@ -186,10 +186,25 @@ export interface Blog {
   title: string;
   slug: string;
   category: BlogCategory;
+  /** サムネイルURL（MicroCMS 画像フィールド `thumbnail` を取得後に正規化） */
+  thumbnail?: string;
   content?: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+}
+
+function normalizeBlogThumbnail(blog: Blog & { thumbnail?: unknown }): Blog {
+  const t = blog.thumbnail;
+  if (t == null) return blog;
+  const url =
+    typeof t === 'string'
+      ? t
+      : typeof t === 'object' && t !== null && 'url' in t
+        ? String((t as { url: string }).url)
+        : undefined;
+  if (!url) return blog;
+  return { ...blog, thumbnail: url };
 }
 
 // 静的フォールバック用のブログデータ（MicroCMS設定前用）
@@ -199,6 +214,7 @@ const FALLBACK_BLOGS: Blog[] = [
     title: 'eJPTのラボ演習：ルーティングの概念と実践',
     slug: 'ejpt-routing-lab',
     category: 'TECH',
+    thumbnail: '/images/scope.png',
     content: '<p>（MicroCMSで本文を管理する予定です）</p>',
     publishedAt: '2026-02-23T00:00:00.000Z',
     createdAt: '2026-02-23T00:00:00.000Z',
@@ -209,6 +225,7 @@ const FALLBACK_BLOGS: Blog[] = [
     title: 'オーソドックススタイルにおける左ガードの視界の確保',
     slug: 'orthodox-left-guard-view',
     category: 'LIFE',
+    thumbnail: '/images/boxer.png',
     content: '<p>（MicroCMSで本文を管理する予定です）</p>',
     publishedAt: '2026-02-20T00:00:00.000Z',
     createdAt: '2026-02-20T00:00:00.000Z',
@@ -219,6 +236,7 @@ const FALLBACK_BLOGS: Blog[] = [
     title: 'Next.jsとmicroCMSでブログ機能を構築してみた',
     slug: 'nextjs-microcms-blog',
     category: 'TECH',
+    thumbnail: '/images/program_code.png',
     content: '<p>（MicroCMSで本文を管理する予定です）</p>',
     publishedAt: '2026-02-18T00:00:00.000Z',
     createdAt: '2026-02-18T00:00:00.000Z',
@@ -229,6 +247,7 @@ const FALLBACK_BLOGS: Blog[] = [
     title: '鉄フライパンで育てる日常のひととき',
     slug: 'cast-iron-daily',
     category: 'LIFE',
+    thumbnail: '/images/desk.png',
     content: '<p>（MicroCMSで本文を管理する予定です）</p>',
     publishedAt: '2026-02-15T00:00:00.000Z',
     createdAt: '2026-02-15T00:00:00.000Z',
@@ -242,13 +261,14 @@ export async function getAllBlogs(): Promise<Blog[]> {
     const data = await client.get({
       endpoint: 'blog',
       queries: {
-        fields: 'id,title,slug,category,content,createdAt,updatedAt,publishedAt',
+        fields: 'id,title,slug,category,thumbnail,content,createdAt,updatedAt,publishedAt',
         orders: '-publishedAt',
       },
     });
-    return (data.contents || []) as Blog[];
+    const contents = (data.contents || []) as Blog[];
+    return contents.map((b) => normalizeBlogThumbnail(b));
   } catch {
-    return FALLBACK_BLOGS;
+    return FALLBACK_BLOGS.map((b) => normalizeBlogThumbnail(b));
   }
 }
 
@@ -259,16 +279,17 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
       endpoint: 'blog',
       queries: {
         filters: `slug[equals]${slug}`,
-        fields: 'id,title,slug,category,content,createdAt,updatedAt,publishedAt',
+        fields: 'id,title,slug,category,thumbnail,content,createdAt,updatedAt,publishedAt',
       },
     });
     if (data.contents && data.contents.length > 0) {
-      return data.contents[0] as Blog;
+      return normalizeBlogThumbnail(data.contents[0] as Blog);
     }
   } catch {
     // fallback
   }
-  return FALLBACK_BLOGS.find((b) => b.slug === slug) ?? null;
+  const found = FALLBACK_BLOGS.find((b) => b.slug === slug);
+  return found ? normalizeBlogThumbnail(found) : null;
 }
 
 // すべてのBlogスラッグを取得（静的生成用）

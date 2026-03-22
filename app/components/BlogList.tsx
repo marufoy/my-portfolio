@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./BlogSection.module.css";
 import type { Blog, BlogCategory } from "@/lib/microcms";
@@ -59,9 +60,26 @@ const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
         {paginated.map((blog) => (
           <li key={blog.id}>
             <Link href={`/blog/${blog.slug}`} className={styles.item}>
-              <span className={styles.itemDate}>{formatDate(blog.publishedAt)}</span>
-              <span className={styles.itemCategory}>[{blog.category}]</span>
-              <span className={styles.itemTitle}>{blog.title}</span>
+              <div className={styles.itemThumbWrap}>
+                {blog.thumbnail ? (
+                  <Image
+                    src={blog.thumbnail}
+                    alt={blog.title}
+                    fill
+                    className={styles.itemThumb}
+                    sizes="(max-width: 480px) 80px, (max-width: 768px) 96px, 120px"
+                  />
+                ) : (
+                  <div className={styles.itemThumbPlaceholder} aria-hidden />
+                )}
+              </div>
+              <div className={styles.itemBody}>
+                <div className={styles.itemMeta}>
+                  <span className={styles.itemDate}>{formatDate(blog.publishedAt)}</span>
+                  <span className={styles.itemCategory}>[{blog.category}]</span>
+                </div>
+                <span className={styles.itemTitle}>{blog.title}</span>
+              </div>
             </Link>
           </li>
         ))}

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getBlogBySlug, getAllBlogSlugs } from "@/lib/microcms";
 import {
@@ -62,6 +63,20 @@ export default async function BlogDetailPage({
         </p>
         <h1 className={styles.title}>{blog.title}</h1>
       </div>
+
+      {blog.thumbnail && (
+        <div className={styles.thumbHero}>
+          <Image
+            src={blog.thumbnail}
+            alt={blog.title}
+            width={800}
+            height={450}
+            className={styles.thumbHeroImg}
+            priority
+            sizes="(max-width: 900px) 100vw, 800px"
+          />
+        </div>
+      )}
 
       {blog.content && (
         <div className={styles.detailSection}>

@@ -90,12 +90,12 @@
 }
 
 .tocList a {
-  color: #1100ff;
+  color: #006b17;
   text-decoration: underline;
 }
 
 .tocList a:hover {
-  color: #0000aa;
+  color: #60f6a6;
 }
 
 .tocItemH2 {
