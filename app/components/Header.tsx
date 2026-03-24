@@ -13,8 +13,8 @@ const Header: React.FC = () => {
       <div className={styles.headerContainer}>
         <div className={styles.logo}>
           <Image 
-            src="/images/WASABI_LOGO.png" 
-            alt="WASABI MARU Logo" 
+            src="/images/header-logo.png" 
+            alt="HeaderLogo" 
             width={100} 
             height={100} 
             className={styles.logoImage} 
