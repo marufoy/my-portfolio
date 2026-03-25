@@ -7,8 +7,7 @@
 }
 
 .desktopOnly {
-  position: relative;
-  z-index: 2;
+  /* absolute要素（character/sandbag）の基準を heroContainer に保つ */
 }
 
 .mobileOnly {

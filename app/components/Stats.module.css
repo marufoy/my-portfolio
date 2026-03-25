@@ -89,7 +89,7 @@
   }
 
   .avatar {
-    width: min(72vw, 280px);
+    width: min(62vw, 240px);
   }
 }
 
@@ -106,6 +106,10 @@
   .title {
     font-size: 1rem;
     gap: 8px;
+  }
+
+  .avatar {
+    width: min(60vw, 220px);
   }
 }
 
