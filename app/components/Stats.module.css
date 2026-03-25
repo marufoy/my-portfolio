@@ -70,7 +70,7 @@
   .statsContainer {
     top: 120px;
     right: 20px;
-    width: 280px;
+    width: 100%;
     padding: 15px;
     font-size: 0.9rem;
   }
@@ -98,7 +98,7 @@
     top: 100px;
     right: 10px;
     left: 10px;
-    width: auto;
+    width: 100%;
     padding: 12px;
     font-size: 0.8rem;
   }
