@@ -65,15 +65,23 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroContainer}>
-      <LaboTitle title="Mt.maru" subtitle="" />
-      <Stats currentLv={lv} />
-      <MessageBoard />
-      {showHiddenMessage && (
-        <HiddenMessage
-          message={currentHiddenMessage}
-          onClose={() => setShowHiddenMessage(false)}
-        />
-      )}
+      <div className={styles.desktopOnly}>
+        <LaboTitle title="Mt.maru" subtitle="" />
+        <Stats currentLv={lv} />
+        <MessageBoard />
+        {showHiddenMessage && (
+          <HiddenMessage
+            message={currentHiddenMessage}
+            onClose={() => setShowHiddenMessage(false)}
+          />
+        )}
+      </div>
+
+      <div className={styles.mobileOnly}>
+        <div className={styles.mobileHud}>
+          <Stats currentLv={lv} mode="fullscreen" />
+        </div>
+      </div>
       {/* 背景スライダー */}
       <div className={styles.backgroundContainer}>
         <Image
@@ -92,35 +100,37 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* サンドバッグ */}
-      <div
-        className={`${styles.sandbag} ${isPunching ? styles.sandbagHit : ""}`}
-      >
-        <Image
-          src={
-            isPunching ? "/images/sandbag-dented.png" : "/images/sandbag-1.png"
-          }
-          alt="Sandbag"
-          width={650}
-          height={650}
-        />
-      </div>
+      <div className={styles.desktopOnly}>
+        {/* サンドバッグ */}
+        <div
+          className={`${styles.sandbag} ${isPunching ? styles.sandbagHit : ""}`}
+        >
+          <Image
+            src={
+              isPunching ? "/images/sandbag-dented.png" : "/images/sandbag-1.png"
+            }
+            alt="Sandbag"
+            width={650}
+            height={650}
+          />
+        </div>
 
-      {/* キャラクター */}
-      <div
-        className={`${styles.character} ${isEnlarged ? styles.punching : ""}`}
-      >
-        <Image
-          src={
-            isPunching
-              ? "/images/character-punch.png"
-              : "/images/character-nomal.png"
-          }
-          alt="Character"
-          width={350}
-          height={350}
-          onClick={handleCharacterClick}
-        />
+        {/* キャラクター */}
+        <div
+          className={`${styles.character} ${isEnlarged ? styles.punching : ""}`}
+        >
+          <Image
+            src={
+              isPunching
+                ? "/images/character-punch.png"
+                : "/images/character-nomal.png"
+            }
+            alt="Character"
+            width={350}
+            height={350}
+            onClick={handleCharacterClick}
+          />
+        </div>
       </div>
     </section>
   );

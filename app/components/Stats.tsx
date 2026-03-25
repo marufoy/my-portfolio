@@ -1,14 +1,16 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
 import styles from './Stats.module.css';
 
 interface StatsProps {
   currentLv: number;
+  mode?: "default" | "fullscreen";
 }
 
-const Stats: React.FC<StatsProps> = ({ currentLv }) => {
+const Stats: React.FC<StatsProps> = ({ currentLv, mode = "default" }) => {
   const [typingStep, setTypingStep] = useState(0);
 
   const stats = [
@@ -20,7 +22,25 @@ const Stats: React.FC<StatsProps> = ({ currentLv }) => {
   ];
 
   return (
-    <div className={styles.statsContainer}>
+    <div
+      className={
+        mode === "fullscreen"
+          ? `${styles.statsContainer} ${styles.fullscreen}`
+          : styles.statsContainer
+      }
+    >
+      {mode === "fullscreen" && (
+        <div className={styles.avatarArea}>
+          <Image
+            src="/images/standingman_toka.png"
+            alt="Player"
+            width={420}
+            height={420}
+            className={styles.avatar}
+            priority
+          />
+        </div>
+      )}
       <h2 className={styles.title}>STATS</h2>
       {stats.map((stat, index) => {
         if (index > typingStep) {
