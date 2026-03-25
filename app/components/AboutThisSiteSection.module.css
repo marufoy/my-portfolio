@@ -1,9 +1,63 @@
-.aboutMeContainer{padding:50px 20px;text-align:center;background-color:#000000;color:#ffffff;font-family:var(--font-dot-gothic16),sans-serif}
+.aboutMeContainer {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-dot-gothic16), sans-serif;
+}
 
-.aboutMeTitle{font-size:2.5em;margin-bottom:40px;color:#ffffff;text-shadow:0 0 10px rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;gap:20px;position:relative;z-index:1}
+.aboutMeTitle {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
 
-.titleIcon{width:40px;height:40px;object-fit:contain;transition:transform .3s ease}
+.titleIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
 
-.titleIcon{transform:scale(1.1)}
+.titleIcon:hover {
+  transform: scale(1.1);
+}
 
-.aboutMeContent{max-width:800px;margin:0 auto;line-height:1.8;font-size:1.1rem}
+.aboutMeContent {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .aboutMeContainer {
+    padding: 40px 15px;
+  }
+
+  .aboutMeTitle {
+    font-size: 2em;
+    margin-bottom: 28px;
+  }
+
+  .aboutMeContent {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutMeTitle {
+    font-size: 1.7em;
+  }
+
+  .aboutMeContent {
+    font-size: 0.95rem;
+  }
+}
