@@ -143,7 +143,6 @@
 /* Typographyプラグインで適用される見出しのカスタマイズ */
 :global(.prose).contentText h1,
 :global(.prose).contentText h2,
-:global(.prose).contentText h3,
 :global(.prose).contentText h4 {
   color: #333333;
   margin-top: 30px;
@@ -169,10 +168,17 @@
 }
 
 :global(.prose).contentText h3 {
-  font-size: 1.5em;
-  background-color: rgba(51, 51, 51, 0.1);
-  border-left-width: 2px;
-  scroll-margin-top: 3em;
+  color: #333333;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  padding: 0 0 8px 12px;
+  background: none;
+  font-size: 1.22em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-left: 3px solid rgba(170, 25, 25, 0.48);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.38);
+  scroll-margin-top: 2em;
 }
 
 :global(.prose).contentText h4 {
