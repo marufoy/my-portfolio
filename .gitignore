@@ -1,7 +1,70 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# =============================================================================
+# ホワイトリスト: ここで ! で許可したパスだけ Git の対象です。
+# firebase deploy が作る .firebase/（大容量）や .next/ はコミットされません。
+#
+# ルートに新しいファイル（例: middleware.ts）を置いたら、
+# このファイルに「!/そのファイル名」を1行追加してください。
+#
+# クローン後の例:
+#   npm ci
+#   cp .env.example .env.local   # 値を編集
+#   firebase deploy
+# =============================================================================
 
-# dependencies
-/node_modules
+# ルート直下はすべて無視（許可リスト以外）
+/*
+
+# ---- メタ・設定ファイル ----
+!/.gitignore
+!/.firebaserc
+!/README.md
+!/.env.example
+
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/next.config.ts
+!/postcss.config.mjs
+!/eslint.config.mjs
+!/firebase.json
+
+# ---- ソース ----
+!/app/
+!/app/**
+
+!/public/
+!/public/**
+
+!/lib/
+!/lib/**
+
+# ---- 明示的に除外（deploy / 依存 / キャッシュ）----
+.firebase/
+.next/
+out/
+node_modules/
+build/
+coverage/
+.vercel/
+
+# debug / OS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.DS_Store
+*.pem
+
+# TypeScript / ツール
+*.tsbuildinfo
+next-env.d.ts
+
+# 秘密情報（.env.* のあとでテンプレだけ再許可）
+.env
+.env.*
+!/.env.example
+
+# Yarn（使う場合のため残す）
 /.pnp
 .pnp.*
 .yarn/*
@@ -9,34 +72,3 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-MICROCMS_SETUP.md
