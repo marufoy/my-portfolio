@@ -194,16 +194,26 @@ export interface Blog {
   publishedAt: string;
 }
 
+/** MicroCMS の画像フィールド（文字列 / { url } / 単要素配列 など）から URL を取り出す */
+function resolveMicroCmsImageUrl(value: unknown): string | undefined {
+  if (value == null) return undefined;
+  if (typeof value === 'string') {
+    const s = value.trim();
+    return s || undefined;
+  }
+  if (Array.isArray(value) && value.length > 0) {
+    return resolveMicroCmsImageUrl(value[0]);
+  }
+  if (typeof value === 'object' && value !== null && 'url' in value) {
+    const u = (value as { url: unknown }).url;
+    return typeof u === 'string' && u.trim() ? u.trim() : undefined;
+  }
+  return undefined;
+}
+
 function normalizeBlogThumbnail(blog: Blog & { thumbnail?: unknown }): Blog {
-  const t = blog.thumbnail;
-  if (t == null) return blog;
-  const url =
-    typeof t === 'string'
-      ? t
-      : typeof t === 'object' && t !== null && 'url' in t
-        ? String((t as { url: string }).url)
-        : undefined;
-  if (!url) return blog;
+  const url = resolveMicroCmsImageUrl(blog.thumbnail);
+  if (!url) return { ...blog, thumbnail: undefined };
   return { ...blog, thumbnail: url };
 }
 

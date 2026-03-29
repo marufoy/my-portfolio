@@ -8,6 +8,9 @@ import {
 } from "@/lib/blog-toc";
 import styles from "./page.module.css";
 
+/** 記事本文・メタを定期的に MicroCMS から再取得 */
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const slugs = await getAllBlogSlugs();
   return slugs.map((slug) => ({ slug }));

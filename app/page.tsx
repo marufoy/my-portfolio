@@ -8,6 +8,9 @@ import TimelineSection from "@/components/TimelineSection";
 import WorksSection from "@/components/WorksSection";
 import ContactSection from "@/components/ContactSection";
 
+/** MicroCMS の一覧・トップ向けデータをこの秒数ごとに再取得（デプロイし直さず更新を反映） */
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <>

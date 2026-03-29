@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { getWorkBySlug, getAllSlugs } from '@/lib/microcms';
 import styles from './page.module.css';
 
+/** Works 詳細を MicroCMS から定期的に再取得 */
+export const revalidate = 60;
+
 // 静的生成用のパスを生成
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
