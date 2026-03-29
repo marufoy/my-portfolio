@@ -48,6 +48,11 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
+              <Link href="#blog" className={styles.navLink}>
+                <span className={styles.prompt}>$</span> BLOG
+              </Link>
+            </li>
+            <li className={styles.navItem}>
               <Link href="#contact" className={styles.navLink}>
                 <span className={styles.prompt}>$</span> CONTACT
               </Link>
