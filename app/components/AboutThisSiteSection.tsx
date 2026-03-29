@@ -9,7 +9,7 @@ const AboutThisSiteSection: React.FC = () => {
       <h2 className={styles.aboutMeTitle}>About This Site</h2>
       <div className={styles.aboutMeContent}>
       <p>
-          こんにちは！わさび丸のポートフォリオサイトへようこそ。
+          こんにちは！mt-maruのポートフォリオサイトへようこそ。
           ここでは、私がこれまでに取り組んできたプロジェクトやスキルについて紹介しています。
           新しい技術を学ぶこと、そしてそれを活用して何かを創造することに情熱を注いでいます。
         </p>

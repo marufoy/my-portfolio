@@ -12,7 +12,7 @@ const TypeAnimation = dynamic(() => import('react-type-animation').then(mod => (
 
 const MessageBoard = () => {
   const messages = [
-    "ここはわさび丸のポートフォリオです",
+    "ここはmaruのポートフォリオです",
     "みなさんに私のことを知ってもらうために作りました",
     "ごゆっくり散策ください"
   ];
