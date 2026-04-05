@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ ownerName, year }) => {
             height={60}
             className={styles.byeImage}
           />
-          <p className={styles.footerMessage}>ThankYou For Coming</p>
+          <p className={styles.footerMessage}>Thank You For Coming</p>
         </div>
       </div>
     </footer>
