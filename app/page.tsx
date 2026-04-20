@@ -8,8 +8,8 @@ import TimelineSection from "@/components/TimelineSection";
 import WorksSection from "@/components/WorksSection";
 import ContactSection from "@/components/ContactSection";
 
-/** MicroCMS の一覧・トップ向けデータをこの秒数ごとに再取得（デプロイし直さず更新を反映） */
-export const revalidate = 60;
+/** TOP の Blog 一覧などを常に最新に（ISR の古い HTML を返さない） */
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (

@@ -1,20 +1,15 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getBlogBySlug, getAllBlogSlugs } from "@/lib/microcms";
+import { getBlogBySlug } from "@/lib/microcms";
 import {
   injectHeadingIdsAndBuildToc,
   type TocItem,
 } from "@/lib/blog-toc";
 import styles from "./page.module.css";
 
-/** 記事本文・メタを定期的に MicroCMS から再取得 */
-export const revalidate = 60;
-
-export async function generateStaticParams() {
-  const slugs = await getAllBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
+/** 記事を常に MicroCMS の最新で描画 */
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
