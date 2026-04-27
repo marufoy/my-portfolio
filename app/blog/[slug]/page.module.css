@@ -80,7 +80,7 @@
 /* 目次 */
 .toc {
   margin-bottom: 32px;
-  padding: 16px 20px;
+  padding: 16px 20px 16px 28px;
   border: 2px solid #333333;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.65);
@@ -97,12 +97,14 @@
 
 .tocList {
   margin: 0;
-  padding-left: 1.25em;
-  list-style: decimal;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: toc-h2;
 }
 
 .tocList li {
   margin-bottom: 6px;
+  position: relative;
 }
 
 .tocList a {
@@ -116,14 +118,23 @@
 
 .tocItemH2 {
   font-weight: 600;
+  padding-left: 2.2em;
+}
+
+.tocItemH2::before {
+  counter-increment: toc-h2;
+  content: counter(toc-h2) ". ";
+  position: absolute;
+  left: 0;
+  color: #333333;
 }
 
 .tocItemH3 {
-  padding-left: 0.75em;
+  padding-left: 2.2em;
 }
 
 .tocItemH4 {
-  padding-left: 1.5em;
+  padding-left: 3.2em;
 }
 
 .sectionTitle {
