@@ -23,7 +23,7 @@
 !/package.json
 !/package-lock.json
 !/tsconfig.json
-!/next.config.ts
+!/next.config.js
 !/postcss.config.mjs
 !/eslint.config.mjs
 !/firebase.json
