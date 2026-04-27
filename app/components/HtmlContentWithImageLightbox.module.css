@@ -1,0 +1,20 @@
+.root :global(img) {
+  cursor: zoom-in;
+}
+
+/* Magnific Popup に近いオーバーレイ・キャプション・カウンター（YARL の CSS 変数） */
+.magnificLike {
+  --yarl__color_backdrop: rgba(8, 8, 10, 0.94);
+  --yarl__fade_animation_duration: 0.35s;
+  --yarl__color_button: rgba(255, 255, 255, 0.92);
+  --yarl__color_button_active: #fff;
+  --yarl__button_filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85));
+  --yarl__slide_captions_container_background: rgba(0, 0, 0, 0.62);
+  --yarl__slide_captions_container_padding: 14px 18px;
+  --yarl__slide_description_color: rgba(255, 255, 255, 0.95);
+  --yarl__slide_description_max_lines: 4;
+  --yarl__counter_top: unset;
+  --yarl__counter_bottom: calc(82px + env(safe-area-inset-bottom));
+  --yarl__counter_left: 14px;
+  --yarl__counter_right: unset;
+}

@@ -1,9 +1,25 @@
-import { defineConfig } from "eslint/config";
-import nextConfig from "eslint-config-next/core-web-vitals.js";
+import { FlatCompat } from "@eslint/eslintrc";
+import path from "path";
+import { fileURLToPath } from "url";
 
-export default defineConfig([
-  ...nextConfig,
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
   {
-    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"],
+    ignores: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      ".firebase/**",
+      "next-env.d.ts",
+    ],
   },
-]);
+  ...compat.extends("next/core-web-vitals"),
+];
+
+export default eslintConfig;

@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkBySlug, getAllSlugs } from '@/lib/microcms';
+import { HtmlContentWithImageLightbox } from '@/components/HtmlContentWithImageLightbox';
 import styles from './page.module.css';
 
 /** Works 詳細を MicroCMS から定期的に再取得 */
@@ -99,9 +100,9 @@ export default async function WorkDetailPage({
       {work.content && (
         <div className={styles.detailSection}>
           <h2 className={styles.sectionTitle}>詳細</h2>
-          <div
+          <HtmlContentWithImageLightbox
+            html={work.content}
             className={`prose ${styles.contentText}`}
-            dangerouslySetInnerHTML={{ __html: work.content }}
           />
         </div>
       )}

@@ -6,6 +6,7 @@ import {
   injectHeadingIdsAndBuildToc,
   type TocItem,
 } from '@/lib/blog-toc';
+import { HtmlContentWithImageLightbox } from '@/components/HtmlContentWithImageLightbox';
 import styles from './page.module.css';
 
 /** Column 詳細を MicroCMS から定期的に再取得 */
@@ -115,9 +116,9 @@ export default async function ColumnDetailPage({
               </ol>
             </nav>
           )}
-          <div
+          <HtmlContentWithImageLightbox
+            html={contentHtml}
             className={`prose ${styles.contentText}`}
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
         </div>
       )}
