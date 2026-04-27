@@ -125,7 +125,7 @@ export function HtmlContentWithImageLightbox({
             Next: "次の画像",
           }}
           on={{
-            view: ({ index: next }) => setIndex(next),
+            view: ({ index: i }: { index: number }) => setIndex(i),
           }}
         />
       )}
