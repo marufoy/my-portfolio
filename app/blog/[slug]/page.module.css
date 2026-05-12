@@ -230,6 +230,10 @@
   .detailSection {
     font-size: 1em;
   }
+
+  :global(.prose).contentText h2 {
+    font-size: 1.3em;
+  }
 }
 
 @media (max-width: 480px) {
