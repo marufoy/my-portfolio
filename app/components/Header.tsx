@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        <div className={styles.logo}>
+        <Link href="/" className={styles.logo} aria-label="ホームへ">
           <Image 
             src="/images/header-logo.png" 
             alt="HeaderLogo" 
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
             height={100} 
             className={styles.logoImage} 
           />
-        </div>
+        </Link>
         <nav className={`${styles.navigation} ${isMenuOpen ? styles.navigationOpen : ''}`}>
           <ul className={styles.navList}>
             <li className={styles.navItem}>
