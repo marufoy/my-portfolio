@@ -20,8 +20,8 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "丸山涼のポートフォリオ",
-  description: "Next.jsで作成したポートフォリオサイトです",
+  title: "MaruyamaRyoの日誌というか記録というかポートフォリオ",
+  description: "Next.jsで作成したポートフォリオサイトです。日々の学習や制作の記録を残しています。",
 };
 
 export default function RootLayout({
